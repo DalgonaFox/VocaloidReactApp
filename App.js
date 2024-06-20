@@ -8,7 +8,7 @@ import Slider from '@react-native-community/slider';
 import backgroundImage from './assets/image.png'
 
 const statusBarHeight = StatusBar.currentHeight;
-const KEY_GPT = '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';
+const KEY_GPT = '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';
 
 export default function App() {
 
