@@ -14,9 +14,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "scripts": {
-      "web:build": "expo build:web"
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
