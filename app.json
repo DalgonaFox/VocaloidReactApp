@@ -22,12 +22,23 @@
       "package": "com.dalgonafox.Vocaloid"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png",
+      "env": {
+        "GEMINI_API_KEY": "AIzaSyDyEDmHxiph25rNyeR7aQL8YBRVAS362jo"
+       },
+         "build": {
+          "babel": {
+            "include": [
+              "node_modules"
+            ]
+            }
+           }
     },
-    "extra": {
-      "eas": {
-        "projectId": "ee4792da-d8ef-468d-b502-e73ad890ca16"
-      }
-    }
+      "extra": {
+        "eas": {
+          "projectId": "ee4792da-d8ef-468d-b502-e73ad890ca16"
+        }
+     }
   }
 }
