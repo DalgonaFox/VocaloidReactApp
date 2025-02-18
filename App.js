@@ -7,6 +7,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 import backgroundImage from './assets/image.png'
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import Markdown from 'react-native-markdown-display';
 
 const statusBarHeight = StatusBar.currentHeight;
 const KEY_GEMINI = ("AIzaSyDyEDmHxiph25rNyeR7aQL8YBRVAS362jo");
@@ -16,11 +17,11 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 export default function App() {
 
-  const [city, setCity] = useState("");
+  const [track, settrack] = useState("");
   const [mood, setMood] = useState("");
   const [days, setDays] = useState(3);
   const [loading, setLoading] = useState(false);
-  const [travel, setTravel] = useState("")
+  const [song, setsong] = useState("")
 
   async function generateTextWithGemini(prompt) {
     try {
@@ -33,7 +34,7 @@ export default function App() {
     }
   }
   async function handleGenerate() {
-    if (city === "") {
+    if (track === "") {
       Alert.alert("Atenção", "Preencha o nome do Vocaloid!")
       return;
     }
@@ -42,14 +43,14 @@ export default function App() {
       return;
     }
 
-    setTravel("")
+    setsong("")
     setLoading(true);
     Keyboard.dismiss();
 
-    const prompt = `(importante: não use asteriscos. Crie uma lista de recomendações de músicas do gênero Vocaloid, com exatas ${days.toFixed(0)} músicas cantadas pelo vocaloid ${city} e com um mood/vibe ${mood}, limite as músicas apenas ao vocaloid fornecido. Forneça o nome da música, o autor da mesma, ano de lançamento, jogos onde a música está presente e uma breve descrição.`
+    const prompt = `(importante: não use asteriscos. Crie uma lista de recomendações de músicas do gênero Vocaloid, com exatas ${days.toFixed(0)} músicas cantadas pelo vocaloid ${track} e com um mood/vibe ou gênero musical ${mood}, limite as músicas apenas ao vocaloid fornecido. Forneça o nome da música, o autor da mesma, ano de lançamento, jogos onde a música está presente e uma breve descrição.`
 
     const generatedText = await generateTextWithGemini(prompt);
-    setTravel(generatedText)
+    setsong(generatedText)
     setLoading(false);
 
   }
@@ -61,21 +62,20 @@ export default function App() {
       >
         <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#09edc3" />
         <View style={styles.container}>
-          <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#09edc3" />
+          <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#F1F1F1" />
 
           <View style={styles.form}>
-            <Text style={styles.heading}>Vocaloid</Text>
-            <Text style={styles.heading}>Recommender</Text>
+            <Text style={styles.heading}>Vocaloid Recommender</Text>
             <Text style={styles.label}>Escolha um Vocaloid</Text>
             <TextInput
                 placeholder="Ex: Hatsune Miku"
                 placeholderTextColor="#808080"
                 style={styles.input}
-                value={city}
-                onChangeText={(text) => setCity(text)}
+                value={track}
+                onChangeText={(text) => settrack(text)}
             />
 
-            <Text style={styles.label}>Selecione um Mood</Text>
+            <Text style={styles.label}>Selecione um Mood ou Gênero Musical</Text>
             <TextInput
                 placeholder="Ex: Fofo"
                 placeholderTextColor="#808080"
@@ -87,7 +87,7 @@ export default function App() {
             <Text style={styles.label}>Quantidade de Recomendações: <Text style={styles.days}> {days.toFixed(0)} </Text> músicas</Text>
             <Slider
                 minimumValue={1}
-                maximumValue={7}
+                maximumValue={10}
                 minimumTrackTintColor="#009688"
                 maximumTrackTintColor="#000000"
                 value={days}
@@ -108,10 +108,10 @@ export default function App() {
                 </View>
             )}
 
-            {travel && (
+            {song && (
                 <View style={styles.content}>
                   <Text style={styles.title}>Músicas recomendadas 🎵</Text>
-                  <Text style={{ lineHeight: 24, }}>{travel}</Text>
+                  <Markdown>{song}</Markdown>
                 </View>
             )}
           </ScrollView>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'contain', // ou 'contain' dependendo do ajuste que deseja
+    resizeMode: 'contain'
   },
   days: {
     backgroundColor: '#F1f1f1'

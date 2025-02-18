@@ -1,54 +1,42 @@
 # Vocaloid Recommender
-Um sistema para requisição de saída antecipada de alunos e inserção de atestado médico, com gerenciamento de turmas e cursos.
 
 ## Sobre o Projeto
-O JustificaSaida é um sistema web que facilita a solicitação e aprovação de saídas antecipadas de alunos em escolas. Ele permite que alunos façam pedidos de saída, enviem justificativas (como atestados médicos) e que os administradores analisem e aprovem as requisições.
+É uma aplicação mobile que retorna uma lista de recomendações musicais para o usuário com base no Vocaloid escolhido, o sentimento geral ou gênero da música e a quantidade de músicas.
+Você pode acessar o projeto no ar [aqui!](https://vocaloidrecommender.onrender.com/)
+> Este projeto foi criado como um exercício durante as aulas no curso Técnico em Desenvolvimento de Sistemas no SENAI. Anteriormente, foi utilizada uma API do ChatGPT, mas como ela foi desativada eu subtituí por uma do GEMINI que é gratuita, e fui personalizando a aplicação conforme desejado. existe outra aplicação bem similar a essa chamada ViajaAI.
 
 ## Funcionalidades
-1. Cadastro e login de usuários (alunos e administradores)
-2. Envio e gerenciamento de justificativas de saída antecipada
-3. Download de atestados enviados pelos alunos
-4. Painel administrativo para gerenciar requisições
+- Geração de recomedações de músicas personalizadas.
 
 ## Requisitos
 Antes de rodar o projeto, certifique-se de ter instalado:
-- Node.js 18+;
-- MySQL Workbench;
-- XAMPP;
 - Git Bash;
-- Algum editor de código (Recomendo o Visual Studio Code).
+- Algum editor de código (Recomendo o Visual Studio Code);
+- Expo Go v50(em seu celular).
 
 ## Instalação
 
-1. Clonando o Repositório
+### Clonando o Repositório
 Use os seguintes comandos no Git Bash, já dentro da pasta onde você deseja clonar o projeto:
-> git clone https://github.com/DalgonaFox/AutorizaSaida.git
+> git clone https://github.com/DalgonaFox/VocaloidReactApp.git
 
-2. Instalando Dependências
+### Instalando Dependências
 Abra seu editor de código e abra a pasta onde o projeto está.
-Use o comando a seguir no seu terminal (Pode ser tanto pelo editor de código como pelo prompt de comando):
-> npm install express express-session multer fs mysql2 body-parser path nodemailer
+- Use o comando a seguir no seu terminal (Pode ser tanto pelo editor de código como pelo prompt de comando):
+> npm install react react-native @google/generative-ai @react-native-community/slider @expo/vector-icons react-native-markdown-display
 
-3. Configurando o Banco de Dados
-- Ligue o XAMPP, e habilite o MySQL na porta 3306.
-- Crie uma conexão no MySQL Workbench chamado AutorizaSaida. Defina o username como root, sem senha e deixe o hostname como locahost.
-- Abra o arquivo "milena.sql" na pasta "bd" desse projeto, e execute (no botão de raio, no topo).
-
-4. Rodando o Projeto
+### Rodando o Projeto
 No terminal, use o comando a seguir (certifique-se de estar dentro da pasta do projeto):
-> node server.js
-Abra o sistema pelo link "localhost:8080" em seu navegador.
+> npx expo start
+- Abra o app Expo Go em seu celular e escaneie o QR Code que aparecerá em seu terminal. ou, se preferir, abra o app pelo link 'localhost:8081'.
 
 ## Como Usar
-- Aluno: Faça login com o e-mail 'alunoteste@mail.com' e a senha 'senha123' e envie uma solicitação de saída, por exemplo.
-- Administrador: Acesse o painel de gestão com o e-mail 'gestorteste@mail.com' e a senha 'gestor123', veja as requisições e aprove ou rejeite.
-> Sugestão: No perfil do gestor, cadastre um aluno com o seu e-mail. Teste entrar nesse usuário criado como aluno, envie formulários e depois autorize com o gestor. Você receberá um e-mail de que sua saída foi autorizada! Você também pode tentar trocar sua senha, e irá receber um e-mail com uma senha aleatória para você alterar ao logar novamente!
+Insira o destino desejado de viagem e a quantidade de dias! Teste o quanto quiser, a API do Gemini é ilimitada (por enquanto).
 
 ## Tecnologias
 O projeto foi desenvolvido com as seguintes tecnologias:
-- Frontend: HTML, CSS, Bootstrap, EJS;
-- Backend: Node.js, Express.js, MySQL;
-- Banco de Dados: MySQL.
+- React Native/Framework Expo;
+- Gemini API.
 
 ## Contato
 Caso tenha dúvidas ou sugestões, entre em contato:
