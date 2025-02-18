@@ -1,4 +1,4 @@
-# AutorizaSaída
+# Vocaloid Recommender
 Um sistema para requisição de saída antecipada de alunos e inserção de atestado médico, com gerenciamento de turmas e cursos.
 
 ## Sobre o Projeto
