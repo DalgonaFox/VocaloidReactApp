@@ -48,9 +48,8 @@ export default function App() {
 
     const prompt = `(importante: não use asteriscos. Crie uma lista de recomendações de músicas do gênero Vocaloid, com exatas ${days.toFixed(0)} músicas cantadas pelo vocaloid ${city} e com um mood/vibe ${mood}, limite as músicas apenas ao vocaloid fornecido. Forneça o nome da música, o autor da mesma, ano de lançamento, jogos onde a música está presente e uma breve descrição.`
 
-    //  Use the new function here
     const generatedText = await generateTextWithGemini(prompt);
-    setTravel(generatedText) // Update your UI with the generatedText
+    setTravel(generatedText)
     setLoading(false);
 
   }
