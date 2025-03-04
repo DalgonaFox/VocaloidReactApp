@@ -1,7 +1,7 @@
 # Vocaloid Recommender
 
 ## Sobre o Projeto
-É uma aplicação mobile que retorna uma lista de recomendações musicais para o usuário com base no Vocaloid escolhido, o sentimento geral ou gênero da música e a quantidade de músicas.
+É uma aplicação web que retorna uma lista de recomendações musicais para o usuário com base no Vocaloid escolhido, o sentimento geral ou gênero da música e a quantidade de músicas.
 Você pode acessar o projeto no ar [aqui!](https://vocaloidrecommender.onrender.com/)
 > Este projeto foi criado como um exercício durante as aulas no curso Técnico em Desenvolvimento de Sistemas no SENAI. Anteriormente, foi utilizada uma API do ChatGPT, mas como ela foi desativada eu subtituí por uma do GEMINI que é gratuita, e fui personalizando a aplicação conforme desejado. existe outra aplicação bem similar a essa chamada ViajaAI.
 
